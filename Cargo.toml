@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 cheribsd-capability-rs = { path = "./cheribsd-capability-rs" }
+morello = { path = "./cheribsd-capability-rs/morello-capability-rs" }
