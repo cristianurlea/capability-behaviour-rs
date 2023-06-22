@@ -9,10 +9,10 @@ fn print_cap(cap: Capability, name: &str) {
 
     println!("&arr  address: {},   bounds: {}, for {}", addr1_usize, get_length(&cap), name);
 
-    unsafe {
-        // Dereference our restricted capability
-        println!("{}", *cap);
-    }
+    // unsafe {
+    //     // Dereference our restricted capability
+    //     println!("{}", *cap);
+    // }
 }
 
 fn main() {
