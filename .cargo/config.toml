@@ -1,0 +1,10 @@
+[build]
+rustc = "/builder/rust/build/x86_64-unknown-linux-gnu/stage1/bin/rustc"
+target = "aarch64-unknown-freebsd-purecap"
+
+[target.aarch64-unknown-freebsd-purecap]
+linker = "/builder/rust/clang-morello.sh"
+runner = ["/builder/rust/test-runner-morello.sh"]
+
+[http]
+check-revoke = false
