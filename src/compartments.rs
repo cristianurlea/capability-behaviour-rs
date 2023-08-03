@@ -5,13 +5,17 @@ use std::os::raw::{c_char, c_int, c_void};
 use morello::capability::*;
 use cheribsd_capability_rs::cheribsd::get_root_seal;
 
+
 // https://github.com/vanjacosic/rust-ffi-to-c
 // https://doc.rust-lang.org/nomicon/ffi.html
 // https://github.com/kent-weak-memory/rust/commit/16fafcd791266ac9eb31c3122007694582c94dcd
-extern crate libc;
+// extern crate libc;
+
+// 
 
 extern "C" {
     fn double_input(input: *const usize) -> libc::c_int;
+    fn donothing();
 }
 
 
@@ -31,17 +35,20 @@ fn int_to_program_pointer(pointer: usize) -> *const c_void {
     capability
 }
 
+
 pub fn with_new_stack() {
 
-    // print_cap(unsafe { foobar as *const i64 }, "foobar");
-    
+        // print_cap(unsafe { foobar as *const i64 }, "foobar");
         // print_cap(double_input as *const i64, "asdf 2");
+
         let input = 16;
         let cap = unsafe { int_to_program_pointer(input) };
 
         let output = unsafe { double_input(&input as *const usize) };
+        unsafe { donothing() };
+
         println!("{} * 2 = {}", input, output);
         // print_cap(double_input as *const i64, "asdf");
     
-    println!("string: {}", 3);
+    println!("string: {} z", 3);
 }

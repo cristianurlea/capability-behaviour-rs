@@ -1,16 +1,18 @@
 // #include <stdio.h>
+#include <stdlib.h>
 
 // char *foobar __attribute__((aligned(16))) = "asdf";
 // char *foobar  = "asdf";
 
-// const char* get_hello_string() {
-// asm(
-//     " nop\n"
-// );
-// }
-
-
+void donothing() {
+    asm(
+        " nop\n"
+    );
+}
 
 int *double_input(int *input) {
-    return *input * 33 ;
+    int *res = malloc(sizeof(int));
+
+    *res=(*input) * 33;
+    return res;
 }

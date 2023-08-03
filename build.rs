@@ -1,4 +1,4 @@
-use std::env;
+// use std::env;
 
 fn main() {
 
@@ -6,9 +6,9 @@ fn main() {
         "/builder/cheri/output/rootfs-morello-purecap/usr/include"
     );
     
-    let inc_path = std::path::Path::new(
-        "/builder/cheribsd/lib"
-    );   
+    // let inc_path = std::path::Path::new(
+    //     "/builder/cheribsd/lib"
+    // );   
 
     cc::Build::new()
     .opt_level(0)
