@@ -9,13 +9,19 @@ use capability_generate::{print_ast};
 // refrence counting / global / local / reachability analysis 
 //  -- ip limiting example 
 
+
 #[print_ast]
-struct Alpha {
+struct Alpha<'a,'b> {
+    value: &'a str,
+    value2: &'b str,
     b: u8,
 }
 
 fn main() {
+    let my_string = String::from("Hello, lifetimes!");
+
+
     println!("ok");
     with_new_stack();
-    println!("ok doky {}", Alpha { b: 3 }.b);
+    println!("ok doky {}", Alpha {  value: &my_string ,value2: &my_string,  b: 3 }.b);
 }
